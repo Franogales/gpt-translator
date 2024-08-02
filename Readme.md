@@ -4,6 +4,7 @@ go build -ldflags "-H windowsgui" -o translator.exe .\cmd\
 # Combinaciones de teclas
 - Ctrl + Shift + T = Traduce el texto en el portapapeles al ingles
 - Ctrl + Shift + Y = Traduce el texto en el portapapeles al español
+- Ctrl + Shift + Q = Cierra la aplicación
 
 
 ## Agregar la tarea al scheduler de windows

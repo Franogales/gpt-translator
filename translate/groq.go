@@ -27,7 +27,7 @@ func (gc GroqChat) TranslateES(text string) (string, error) {
 
 	chatRequest := groq.ChatRequest{
 		Messages:  messages,
-		Model:     groq.Model_Llama3_8b_8192,
+		Model:     groq.Model_Llama_3_1_70b_versatile,
 		MaxTokens: 100,
 	}
 
@@ -52,7 +52,7 @@ func (gc GroqChat) TranslateEN(text string) (string, error) {
 
 	chatRequest := groq.ChatRequest{
 		Messages:  messages,
-		Model:     groq.Model_Llama3_8b_8192,
+		Model:     groq.Model_Llama_3_1_70b_versatile,
 		MaxTokens: 100,
 	}
 
