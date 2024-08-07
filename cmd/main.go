@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"os/signal"
-	"time"
 
 	"github.com/Franogales/gpt-translator/translate"
 	"github.com/go-vgo/robotgo"
@@ -89,9 +88,6 @@ func main() {
 	pressedY := false
 	for {
 		select {
-		case <-time.After(5 * time.Minute):
-			fmt.Println("Received timeout signal")
-			return
 		case <-signalChan:
 			fmt.Println("Received shutdown signal")
 			return
