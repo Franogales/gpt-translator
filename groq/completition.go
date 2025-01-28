@@ -15,6 +15,7 @@ type model string
 const (
 	Model_Llama3_8b_8192          model = "llama3-8b-8192"
 	Model_Llama_3_1_70b_versatile model = "llama-3.1-70b-versatile"
+	Model_Llama_3_3_70b_versatile model = "llama-3.3-70b-versatile"
 )
 const (
 	ChatMessageRoleSystem = "system"

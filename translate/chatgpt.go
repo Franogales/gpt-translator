@@ -19,7 +19,7 @@ func (gpt GPTChat) TranslateEN(text string) (string, error) {
 	resp, err := gpt.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			MaxTokens: 200,
+			MaxTokens: 10000,
 			Model:     openai.GPT4o,
 			Messages: []openai.ChatCompletionMessage{
 				{
@@ -44,7 +44,7 @@ func (gpt GPTChat) TranslateES(text string) (string, error) {
 	resp, err := gpt.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			MaxTokens: 200,
+			MaxTokens: 10000,
 			Model:     openai.GPT4o,
 			Messages: []openai.ChatCompletionMessage{
 				{

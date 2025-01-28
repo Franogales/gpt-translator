@@ -7,7 +7,6 @@ import (
 	"os/signal"
 
 	"github.com/Franogales/gpt-translator/translate"
-	"github.com/go-vgo/robotgo"
 	"github.com/joho/godotenv"
 	"github.com/moutend/go-hook/pkg/keyboard"
 	"github.com/moutend/go-hook/pkg/types"
@@ -142,7 +141,7 @@ func translateFromClipBoard(gptTranslator translate.Translator, lang string) (er
 	}
 
 	clipboard.Write(clipboard.FmtText, []byte(translatedText))
-	robotgo.TypeStr(translatedText)
+	zenity.Notify("Texto traducido y copiado al portapapeles", zenity.Title("Info"))
 	return nil
 }
 

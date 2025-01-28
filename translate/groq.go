@@ -1,6 +1,8 @@
 package translate
 
 import (
+	"fmt"
+
 	"github.com/Franogales/gpt-translator/groq"
 )
 
@@ -17,7 +19,7 @@ func (gc GroqChat) TranslateES(text string) (string, error) {
 	messages := []groq.Message{
 		{
 			Role:    groq.ChatMessageRoleSystem,
-			Content: "Responde únicamente con la traducción en español",
+			Content: "you are a translation assistant. Your task is to translate any provided text into Spanish. Do not provide explanations or engage in conversations. Only respond with the accurate translation.",
 		},
 		{
 			Role:    groq.ChatMessageRoleUser,
@@ -27,8 +29,8 @@ func (gc GroqChat) TranslateES(text string) (string, error) {
 
 	chatRequest := groq.ChatRequest{
 		Messages:  messages,
-		Model:     groq.Model_Llama_3_1_70b_versatile,
-		MaxTokens: 100,
+		Model:     groq.Model_Llama_3_3_70b_versatile,
+		MaxTokens: 10000,
 	}
 
 	response, err := gc.client.ChatCompletition(chatRequest)
@@ -42,18 +44,18 @@ func (gc GroqChat) TranslateEN(text string) (string, error) {
 	messages := []groq.Message{
 		{
 			Role:    groq.ChatMessageRoleSystem,
-			Content: "Responde únicamente con la traducción en inglés",
+			Content: "You are a translation assistant. Your task is to translate any provided text into English. Do not provide explanations or engage in conversations. Only respond with the accurate translation.",
 		},
 		{
 			Role:    groq.ChatMessageRoleUser,
-			Content: text,
+			Content: fmt.Sprintf("traduce el siguiente texto al inglés: %s", text),
 		},
 	}
 
 	chatRequest := groq.ChatRequest{
 		Messages:  messages,
-		Model:     groq.Model_Llama_3_1_70b_versatile,
-		MaxTokens: 100,
+		Model:     groq.Model_Llama_3_3_70b_versatile,
+		MaxTokens: 10000,
 	}
 
 	response, err := gc.client.ChatCompletition(chatRequest)
