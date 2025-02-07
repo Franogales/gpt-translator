@@ -74,7 +74,8 @@ func main() {
 
 	defer keyboard.Uninstall()
 
-	gptTranslator := translate.NewGroqChat(chatgptApiKey)
+	gptTranslator := translate.NewLocalChat()
+	// gptTranslator := translate.NewGroqChat(chatgptApiKey)
 
 	signalChan := make(chan os.Signal, 1)
 	signal.Notify(signalChan, os.Interrupt)
