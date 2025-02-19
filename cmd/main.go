@@ -43,7 +43,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	chatgptApiKey := os.Getenv("GROQ_API_KEY")
+	// chatgptApiKey := os.Getenv("GROQ_API_KEY")
+	chatgptApiKey := os.Getenv("GEMINI_API_KEY")
 
 	if chatgptApiKey == "" {
 		chatgptApiKey, err = zenity.Entry("Por favor, introduce tu API Key de ChatGPT",
@@ -74,7 +75,9 @@ func main() {
 
 	defer keyboard.Uninstall()
 
-	gptTranslator := translate.NewLocalChat()
+	gptTranslator := translate.NewGeminiChat(chatgptApiKey)
+	// gptTranslator := translate.NewLocalChat()
+
 	// gptTranslator := translate.NewGroqChat(chatgptApiKey)
 
 	signalChan := make(chan os.Signal, 1)
