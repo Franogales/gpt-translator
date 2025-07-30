@@ -30,7 +30,7 @@ func (gc *GeminiClient) ChatCompletition(systemPrompt, userPrompt string) (strin
 	ctx := context.Background()
 
 	// [START text_gen_text_only_prompt]
-	model := gc.client.GenerativeModel("gemini-1.5-flash")
+	model := gc.client.GenerativeModel("gemini-2.5-flash-lite")
 	model.SystemInstruction = genai.NewUserContent(genai.Text(systemPrompt))
 	resp, err := model.GenerateContent(ctx, genai.Text(userPrompt))
 	if err != nil {

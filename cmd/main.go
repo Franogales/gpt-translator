@@ -100,20 +100,26 @@ func main() {
 				pressedCtrl = false
 				pressedAlt = false
 				pressedT = false
+				fmt.Println("Traduciendo al inglés...")
 				err = translateFromClipBoard(gptTranslator, "en")
 				if err != nil {
 					zenity.Error(fmt.Sprintf("un error ocurrio [%v] preciona ctrl+alt+q  para detener el programa", err), zenity.Title("Error"))
 				}
+				fmt.Println("Texto traducido y copiado al portapapeles")
+				continue
 			}
 
 			if pressedCtrl && pressedAlt && pressedY {
 				pressedCtrl = false
 				pressedAlt = false
 				pressedY = false
+				fmt.Println("Traduciendo al español...")
 				err = translateFromClipBoard(gptTranslator, "es")
 				if err != nil {
 					zenity.Error(fmt.Sprintf("un error ocurrio [%v] preciona ctrl+alt+q  para detener el programa", err), zenity.Title("Error"))
 				}
+				fmt.Println("Texto traducido y copiado al portapapeles")
+				continue
 			}
 
 			if pressedCtrl && pressedAlt && pressedQ {
